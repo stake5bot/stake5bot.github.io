@@ -4910,6 +4910,60 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       border-color: rgba(0,0,0,0.15) !important;
       color: #1a1a2e !important;
     }
+
+    /* ============================================================
+       SCROLL TO TOP BUTTON
+    ============================================================ */
+    #scroll-top-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px) scale(0.85);
+      transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      background: rgb(218,255,1);
+      color: rgb(17,17,19);
+      box-shadow: 0 4px 20px rgba(218,255,1,0.45), 0 2px 8px rgba(0,0,0,0.3);
+    }
+    #scroll-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    #scroll-top-btn:hover {
+      background: rgb(200,240,0);
+      transform: translateY(-3px) scale(1.08) !important;
+      box-shadow: 0 8px 28px rgba(218,255,1,0.55), 0 2px 8px rgba(0,0,0,0.3);
+    }
+    #scroll-top-btn:active {
+      transform: translateY(0) scale(0.96) !important;
+    }
+    #scroll-top-btn svg {
+      transition: transform 0.2s ease;
+    }
+    #scroll-top-btn:hover svg {
+      transform: translateY(-2px);
+    }
+    [data-theme="light"] #scroll-top-btn {
+      background: rgb(55,85,0);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(55,85,0,0.4), 0 2px 8px rgba(0,0,0,0.15);
+    }
+    [data-theme="light"] #scroll-top-btn:hover {
+      background: rgb(40,65,0);
+      box-shadow: 0 8px 28px rgba(55,85,0,0.5), 0 2px 8px rgba(0,0,0,0.15);
+    }
 </style>
   <meta name="theme-color" content="#111113">
   <meta name="color-scheme" content="dark">
@@ -6291,11 +6345,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     Інструкція користування
                   </a>
-                  <a href="https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg" target="_blank" class="faq-link-btn" id="faq-telegram-btn">
+                  <a href="https://t.me/Farm_StakeRP_Bot" target="_blank" class="faq-link-btn" id="faq-telegram-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     Написати в підтримку
                   </a>
-                  <a href="https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg" target="_blank" class="faq-link-btn" id="faq-discord-btn">
+                  <a href="https://t.me/Farm_StakeRP_Bot" target="_blank" class="faq-link-btn" id="faq-discord-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Discord спільнота
                   </a>
@@ -6318,7 +6372,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                   <span class="text-sm text-[rgb(218,218,218)]">Версія <span id="dl-version">v4.12</span> - Professional &bull; Windows 10/11</span>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                  <a href="https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg"
+                  <a href="https://github.com/stake5bot/stake5bot.github.io/releases/download/v4.12/StakeDrop.exe"
                     id="main-download-btn"
                     class="inline-flex items-center justify-center gap-2 shadow bg-[rgb(218,255,1)] text-[rgb(17,17,19)] hover:bg-[rgb(166,190,21)] font-bold px-10 h-14 text-lg rounded-xl transition-all duration-200 hover:shadow-[0_8px_25px_rgba(218,255,1,0.4)] hover:-translate-y-1 min-w-[240px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
@@ -6431,7 +6485,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 <li><a href="#"
                     class="text-[rgb(161,161,170)] hover:text-[rgb(218,255,1)] transition-colors duration-200 text-sm"
                     target="_blank" rel="noopener noreferrer" id="footer-discord-link">Discord сервер</a></li>
-                <li><a href="https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg" target="_blank" id="footer-telegram-link"
+                <li><a href="https://t.me/Farm_StakeRP_Bot" target="_blank" id="footer-telegram-link"
                     class="text-[rgb(161,161,170)] hover:text-[rgb(218,255,1)] transition-colors duration-200 text-sm"
                     target="_blank" rel="noopener noreferrer">Telegram канал</a></li>
                 <li><a href="#instructions"
@@ -6498,13 +6552,13 @@ document.addEventListener("DOMContentLoaded", function () {
   ============================================================ */
   var SITE_CONFIG = {
     downloadUrl:    "https://github.com/stake5bot/stake5bot.github.io/releases/download/v4.12/StakeDrop.exe",
-    buyUrl:         "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",       // загальне посилання
-    buyProMonthly:  "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",       // PRO місяць
-    buyProYearly:   "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",       // PRO рік
-    buyBasicMonthly:"https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",       // Basic місяць
-    buyBasicYearly: "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",       // Basic рік
-    telegramUrl:    "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",
-    discordUrl:     "https://images.meme-arsenal.com/d5c9dd74ae3b8214b1e19a2959250398.jpg",
+    buyUrl:         "https://t.me/Farm_StakeRP_Bot",       // загальне посилання
+    buyProMonthly:  "https://t.me/Farm_StakeRP_Bot",       // PRO місяць
+    buyProYearly:   "https://t.me/Farm_StakeRP_Bot",       // PRO рік
+    buyBasicMonthly:"https://t.me/Farm_StakeRP_Bot",       // Basic місяць
+    buyBasicYearly: "https://t.me/Farm_StakeRP_Bot",       // Basic рік
+    telegramUrl:    "https://t.me/Farm_StakeRP_Bot",
+    discordUrl:     "https://t.me/Farm_StakeRP_Bot",
     appVersion:     "v4.12",
     updateDate:     "06.03.2026",
   };
@@ -6809,8 +6863,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var scrollBtn = document.getElementById('scroll-top-btn');
   if (scrollBtn) {
     window.addEventListener('scroll', function() {
-      scrollBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
-      scrollBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
     }, { passive: true });
     scrollBtn.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -6907,6 +6964,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scroll-top-btn" aria-label="Повернутись вгору" title="Повернутись вгору">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
 </body>
 
 </html>
