@@ -6612,7 +6612,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
               <div class="flex items-center gap-3" x-file-name="Footer" x-line-number="44" x-column="12"
                 x-component="div" x-id="Footer_44_12" x-dynamic="false"><a href="#"
                   class="w-10 h-10 bg-[rgb(38,40,42)] rounded-lg flex items-center justify-center text-[rgb(161,161,170)] hover:bg-[rgb(218,255,1)] hover:text-[rgb(17,17,19)] transition-all duration-200 hover:-translate-y-1"
-                  aria-label="Discord" x-file-name="Footer" x-line-number="45" x-column="14" x-component="a"
+                  href="https://t.me/Farm_StakeRP_Bot" target="_blank" rel="noopener noreferrer" aria-label="Discord" x-file-name="Footer" x-line-number="45" x-column="14" x-component="a"
                   x-id="Footer_45_14" x-dynamic="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5" aria-hidden="true"
@@ -6621,7 +6621,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                   </svg></a><a href="#"
                   class="w-10 h-10 bg-[rgb(38,40,42)] rounded-lg flex items-center justify-center text-[rgb(161,161,170)] hover:bg-[rgb(218,255,1)] hover:text-[rgb(17,17,19)] transition-all duration-200 hover:-translate-y-1"
-                  aria-label="Telegram" x-file-name="Footer" x-line-number="52" x-column="14" x-component="a"
+                  href="https://t.me/Farm_StakeRP_Bot" target="_blank" rel="noopener noreferrer" aria-label="Telegram" x-file-name="Footer" x-line-number="52" x-column="14" x-component="a"
                   x-id="Footer_52_14" x-dynamic="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" class="lucide lucide-send w-5 h-5" aria-hidden="true" x-file-name="Footer"
@@ -6693,13 +6693,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     x-source-line="7" x-source-path="support.name" x-source-editable="true" x-array-var="footerLinks"
                     x-array-line="7" x-array-item-param="link">Discord сервер</a></li>
                 <li x-file-name="Footer" x-line-number="91" x-column="16" x-component="li" x-id="Footer_91_16"
-                  x-dynamic="false"><a href="#"
-                    class="text-[rgb(161,161,170)] hover:text-[rgb(218,255,1)] transition-colors duration-200 text-sm"
-                    target="_blank" rel="noopener noreferrer" x-file-name="Footer" x-line-number="92" x-column="18"
-                    x-component="a" x-id="Footer_92_18" x-dynamic="true" x-source-type="static-imported"
-                    x-source-var="footerLinks" x-source-file-abs="/app/frontend/src/components/Footer.jsx"
-                    x-source-line="7" x-source-path="support.name" x-source-editable="true" x-array-var="footerLinks"
-                    x-array-line="7" x-array-item-param="link">Telegram канал</a></li>
+                  x-dynamic="false"><a href="https://t.me/Farm_StakeRP_Bot" target="_blank" rel="noopener noreferrer" class="text-[rgb(161,161,170)] hover:text-[rgb(218,255,1)] transition-colors duration-200 text-sm">Telegram канал</a></li>
                 <li x-file-name="Footer" x-line-number="91" x-column="16" x-component="li" x-id="Footer_91_16"
                   x-dynamic="false"><a href="#instructions"
                     class="text-[rgb(161,161,170)] hover:text-[rgb(218,255,1)] transition-colors duration-200 text-sm"
@@ -6879,7 +6873,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 <script>
 (function() {
 
-  // ===== ДОПОМІЖНА ФУНКЦІЯ ПЛАВНОЇ ПРОКРУТКИ =====
+  var TG_URL = 'https://t.me/Farm_StakeRP_Bot';
+
+  // ===== ПЛАВНА ПРОКРУТКА =====
   function scrollToSection(selector) {
     var target = document.querySelector(selector);
     if (target) {
@@ -6888,18 +6884,23 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     }
   }
 
-  // ===== КНОПКИ =====
+  // ===== КНОПКИ Download / Buy =====
   function addButtonListeners() {
     document.querySelectorAll('button[data-action="download"]').forEach(function(btn) {
-      btn.addEventListener('click', function() { scrollToSection('#download'); });
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        scrollToSection('#download');
+      });
     });
     document.querySelectorAll('button[data-action="buy"]').forEach(function(btn) {
-      btn.addEventListener('click', function() { scrollToSection('#pricing'); });
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        scrollToSection('#pricing');
+      });
     });
   }
 
   // ===== АКОРДЕОН =====
-  // Контент для кожного бота
   var accordionContent = {
     'Рибалка': [
       '🎯 <b>Мета:</b> Автоматичний фарм риби на STAKE RP.',
@@ -6918,9 +6919,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       '5. Натисніть <b>F9</b> — бот почне тренування.',
       '⚠️ Рекомендовано увімкнути Анті-AFK щоб не вилетіти.'
     ],
-    "Кар'єр": [
-      "🎯 <b>Мета:</b> Автоматичне видобування руди в кар'єрі.",
-      "1. Прийдіть на кар'єр та візьміть потрібний інструмент.",
+    "Кар\'єр": [
+      "🎯 <b>Мета:</b> Автоматичне видобування руди в кар\'єрі.",
+      "1. Прийдіть на кар\'єр та візьміть потрібний інструмент.",
       '2. Відкрийте вкладку "Кар\'єр" у TwitchDrop.',
       '3. Натисніть <b>F8</b> та позначте точки маршруту ЛКМ.',
       '4. Вкажіть кількість точок та тип ресурсу.',
@@ -6941,16 +6942,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   function setupAccordion() {
     var items = document.querySelectorAll('[data-orientation="vertical"][data-state]');
     items.forEach(function(item) {
-      // Знаходимо кнопку тригер та панель контенту
       var trigger = item.querySelector('button[aria-controls]');
       var panel = trigger ? document.getElementById(trigger.getAttribute('aria-controls')) : null;
       if (!trigger || !panel) return;
-
-      // Визначаємо назву бота
       var nameSpan = trigger.querySelector('span.text-lg');
       var botName = nameSpan ? nameSpan.textContent.trim() : null;
-
-      // Заповнюємо контент якщо він порожній
       if (botName && accordionContent[botName] && panel.innerHTML.trim() === '') {
         var inner = document.createElement('div');
         inner.style.cssText = 'padding:0 24px 20px;';
@@ -6965,13 +6961,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         inner.appendChild(ul);
         panel.appendChild(inner);
       }
-
-      // Клік обробник
       trigger.addEventListener('click', function() {
         var isOpen = item.getAttribute('data-state') === 'open';
-
         if (isOpen) {
-          // Закрити
           item.setAttribute('data-state', 'closed');
           trigger.setAttribute('data-state', 'closed');
           trigger.setAttribute('aria-expanded', 'false');
@@ -6981,25 +6973,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           panel.setAttribute('hidden', '');
           panel.style.height = '0';
         } else {
-          // Закрити всі інші
           document.querySelectorAll('[data-orientation="vertical"][data-state="open"]').forEach(function(openItem) {
             var openTrigger = openItem.querySelector('button[aria-controls]');
             var openPanel = openTrigger ? document.getElementById(openTrigger.getAttribute('aria-controls')) : null;
             openItem.setAttribute('data-state', 'closed');
-            if (openTrigger) {
-              openTrigger.setAttribute('data-state', 'closed');
-              openTrigger.setAttribute('aria-expanded', 'false');
-            }
+            if (openTrigger) { openTrigger.setAttribute('data-state', 'closed'); openTrigger.setAttribute('aria-expanded', 'false'); }
             var openH3 = openItem.querySelector('h3');
             if (openH3) openH3.setAttribute('data-state', 'closed');
-            if (openPanel) {
-              openPanel.setAttribute('data-state', 'closed');
-              openPanel.setAttribute('hidden', '');
-              openPanel.style.height = '0';
-            }
+            if (openPanel) { openPanel.setAttribute('data-state', 'closed'); openPanel.setAttribute('hidden', ''); openPanel.style.height = '0'; }
           });
-
-          // Відкрити поточний
           item.setAttribute('data-state', 'open');
           trigger.setAttribute('data-state', 'open');
           trigger.setAttribute('aria-expanded', 'true');
@@ -7017,25 +6999,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   function setupMobileMenu() {
     var menuBtn = document.querySelector('button.md\\:hidden');
     if (!menuBtn) return;
-
     var mobileMenu = document.createElement('div');
     mobileMenu.id = 'mobile-menu';
-    mobileMenu.style.cssText = [
-      'display:none',
-      'position:fixed',
-      'top:80px',
-      'left:0',
-      'right:0',
-      'background:rgba(17,17,19,0.98)',
-      'backdrop-filter:blur(12px)',
-      '-webkit-backdrop-filter:blur(12px)',
-      'border-bottom:1px solid rgba(255,255,255,0.1)',
-      'z-index:49',
-      'padding:16px 24px 24px',
-      'flex-direction:column',
-      'gap:4px'
-    ].join(';');
-
+    mobileMenu.style.cssText = 'display:none;position:fixed;top:80px;left:0;right:0;background:rgba(17,17,19,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.1);z-index:49;padding:16px 24px 24px;flex-direction:column;gap:4px';
     var links = [
       { href: '#bots', text: 'Боти' },
       { href: '#features', text: 'Можливості' },
@@ -7043,7 +7009,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       { href: '#instructions', text: 'Інструкції' },
       { href: '#download', text: 'Завантажити' }
     ];
-
     links.forEach(function(link) {
       var a = document.createElement('a');
       a.href = link.href;
@@ -7054,10 +7019,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       a.addEventListener('click', function() { mobileMenu.style.display='none'; isOpen=false; });
       mobileMenu.appendChild(a);
     });
-
     var header = document.querySelector('header');
     if (header && header.parentNode) header.parentNode.insertBefore(mobileMenu, header.nextSibling);
-
     var isOpen = false;
     menuBtn.addEventListener('click', function() {
       isOpen = !isOpen;
@@ -7071,7 +7034,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     });
   }
 
-  // ===== ПЛАВНА ПРОКРУТКА ДЛЯ НАВІГАЦІЙНИХ ПОСИЛАНЬ =====
+  // ===== ПЛАВНА ПРОКРУТКА НАВІГАЦІЇ =====
   function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function(a) {
       a.addEventListener('click', function(e) {
